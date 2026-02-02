@@ -1,0 +1,118 @@
+<html>
+<head>
+    <title>Know Me More</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("qhggInqITJsxATY69");
+        })();
+    </script>
+
+
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+    .space-y-1{
+        display: none;
+    }
+</style>
+</head>
+
+
+<body class="bg-pink-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <p class="text-2xl font-bold mb-2 text-pink-800">Let's know each other
+        <br>I Have Surprise For You On Next Page. </p>
+        <form action="#" method="GET" class="space-y-6" id="my-form">
+            <div>
+                <label for="name" class="block text-sm font-medium text-pink-700">Name</label>
+                <input type="text" id="name" name="name" required class="mt-1 block w-full px-3 py-2 border border-pink-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
+            </div>
+            <div>
+                <label for="user_id" class="block text-sm font-medium text-pink-700"  >Any Social Media</label>
+                <input type="text" id="user_id" name="user_id" required class="mt-1 block w-full px-3 py-2 border border-pink-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
+            </div>
+            <div>
+                <label for="phone_id" class="block text-sm font-medium text-pink-700">Phone Num</label>
+                <input type="text" id="phone_id"  name="phone_id" required class="mt-1 block w-full px-3 py-2 border border-pink-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
+            </div>
+            <div>
+                
+                <label for="message" class="block text-sm font-medium text-pink-700">Message</label>
+                <textarea id="message" name="message" rows="4" required class="mt-1 block w-full px-3 py-2 border border-pink-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm"></textarea>
+            </div>
+            <div>
+                <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500" 
+                    id="button">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Include EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Initialize EmailJS
+        emailjs.init("qhggInqITJsxATY69"); // Replace with your EmailJS User ID
+
+        // Select the form
+        const form = document.getElementById("my-form");
+
+        // Add event listener for form submission
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Collect form values
+            let inputs = {
+                name: document.getElementById("name").value,
+                message: document.getElementById("message").value,
+                phone_id: document.getElementById("phone_id").value,
+                user_id: document.getElementById("user_id").value,
+                reply_to: "none",
+            };
+
+            // Send email using EmailJS
+            emailjs
+                .send("service_q5zl7b2", "template_gtrk0rt", inputs)
+                .then(
+                    function (response) {
+                        alert("Email sent successfully!");
+                        console.log("SUCCESS", response);
+                        form.reset(); // Clear the form after successful submission
+                    },
+                    function (error) {
+                        alert("Failed to send email. Please try again.");
+                        console.error("FAILED", error);
+                    }
+                );
+        });
+    });
+</script>
+
+    <script>
+         document.getElementById('button').addEventListener('click', function() {
+        // Show loading message
+        
+
+        // Set a delay (e.g., 3 seconds) before navigating to the next page
+        setTimeout(function() {
+            // Redirect to the next page
+            window.open("https://Eklavya15.github.io/Velentine-Day-Animation/page3/index2.html"); // Change this to your next page URL
+        }, 100); // 1000 milliseconds = 3 seconds
+    });
+    </script>
+<!--     <script src="script.js"></script> -->
+</body>
+</html>
